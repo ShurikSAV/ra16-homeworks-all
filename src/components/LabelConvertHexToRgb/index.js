@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 //import PropTypes from 'prop-types';
 import style from './index.module.css'
 
-export const PagePhoto = () => {
+export const LabelConvertHexToRgb = ({colorHex}) => {
 	return (
 		<div className={style.body}>
-			PagePhoto
+			{colorHex}
 		</div>
 	)
 }
 
 /*
-PagePhoto.propTypes = {
+LabelConvertHexToRgb.propTypes = {
 	count: PropTypes.number
 	}
 */
