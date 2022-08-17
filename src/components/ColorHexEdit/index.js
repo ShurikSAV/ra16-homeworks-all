@@ -1,20 +1,16 @@
 import React, { useState } from 'react'
 import { validColorHex } from '../../util/ValidatorUtil';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import style from './index.module.css'
 
 
-export const ColorHexEdit = ({color, setColor, setBackground}) => {
-	console.log('ColorHexEdit',color);
-
+export const ColorHexEdit = ({color, setColor, setMessage}) => {
 	const [inputValue, setInputValue] = useState(color)
-	
+
 	const errorSettings = {
 		color: "#00FF00",
 		mesage: "Ошибка!"
 	}
-
-	
 
 	const onChange = (e) => {
 		const colorNew = e.target.value
@@ -22,13 +18,11 @@ export const ColorHexEdit = ({color, setColor, setBackground}) => {
 		setInputValue(colorNew)
 
 		if(validColorHex(colorNew)) {
+			setMessage()
 			setColor(colorNew)
-			setBackground(colorNew)
 			return;
 		}
-		
-		setColor(errorSettings.mesage)
-		setBackground(errorSettings.color)
+		setMessage(errorSettings.mesage)
 	}
 
 	return (
@@ -38,8 +32,8 @@ export const ColorHexEdit = ({color, setColor, setBackground}) => {
 	)
 }
 
-/*
 ColorHexEdit.propTypes = {
-	count: PropTypes.number
-	}
-*/
+	color: PropTypes.string,
+	setColor: PropTypes.func,
+	setMessage: PropTypes.func,
+}

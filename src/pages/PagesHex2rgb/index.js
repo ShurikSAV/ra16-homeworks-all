@@ -6,13 +6,12 @@ import style from './index.module.css'
 
 export const PagesHex2rgb = () => {
 	const [colorHex, setColorHex] = useState("#34495e")
-
-	const setBackground = (color) => {}
-
+	const [message, setMessage] = useState()
+	const styleBody = { backgroundColor: colorHex };
 	return (
-		<div className={style.body}>
-			<ColorHexEdit color={colorHex} setColor={setColorHex} setBackground={setBackground} />
-			<LabelConvertHexToRgb colorHex={colorHex} />
+		<div className={style.body} style={styleBody}>
+			<ColorHexEdit color={colorHex} setColor={setColorHex} setMessage={setMessage} />
+			<LabelConvertHexToRgb colorHex={colorHex} message={message}/>
 		</div>
 	)
 }
