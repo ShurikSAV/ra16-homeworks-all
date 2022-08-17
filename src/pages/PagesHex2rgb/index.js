@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { ColorHexEdit } from '../../components/ColorHexEdit'
 import { LabelConvertHexToRgb } from '../../components/LabelConvertHexToRgb'
-//import PropTypes from 'prop-types';
 import style from './index.module.css'
 
 export const PagesHex2rgb = () => {
