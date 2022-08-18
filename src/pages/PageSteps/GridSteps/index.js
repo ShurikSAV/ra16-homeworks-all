@@ -19,8 +19,8 @@ export const GridSteps = ({data, header, edit, del}) => {
 							<td>{data}</td>
 							<td>{distance}</td>
 							<td>
-								<button onClick={() => {edit(i)}}>edit</button>
-								<button onClick={() => {del(i)}}>del</button>
+								<button onClick={() => {edit(i)}}>✎</button>
+								<button onClick={() => {del(i)}}>×</button>
 							</td>
 						</tr>)
 					)}

@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
+import { validData } from '../../util/ValidatorUtil'
 import { FormSteps } from './FormSteps'
 import { GridSteps } from './GridSteps'
 //import PropTypes from 'prop-types';
 import style from './index.module.css'
 
-const dataStepsNew = (data = '', distance = 0.0) => {return { data, distance }}
+const dataStepsNew = (data = '', distance = 0.0) => {return { data, distance: distance + 0 }}
 
 const dataHeader = ["Дата (ДД.ММ.ГГ)", "Пройдено км", "Действия"]
 
@@ -15,7 +16,8 @@ const dataSteps = [
 ]
 
 const dataValid = (dataEdit) => {
-	return dataEdit.data !== '' && dataEdit.distance > 0
+
+	return validData(dataEdit.data) && dataEdit.distance >= 0
 }
 
 const dataEditStepsNew = (index = undefined, data = dataStepsNew()) => {return {index, data}}
@@ -25,9 +27,13 @@ export const PageSteps = () => {
 	const [ dataEdit, setDataEdit] = useState(dataEditStepsNew())
 
 	const addFormStep = () => {
-		console.log('addFormStep',dataEdit);
 		//TODO валидация значений
+		
+		console.log('addFormStep0',dataEdit,dataValid(dataEdit));
+		if(!dataValid(dataEdit.data)) return
+
 		if(dataEdit.index) {
+			console.log('addFormStep1',dataEdit);
 			setDataGrid(
 				[
 					...dataGrid.map(
@@ -38,7 +44,8 @@ export const PageSteps = () => {
 					
 				]
 			)
-		} else if(dataValid(dataEdit)) {
+		} else {
+			console.log('addFormStep2',dataEdit);
 			setDataGrid(
 				[
 					...dataGrid,
@@ -65,7 +72,7 @@ export const PageSteps = () => {
 
 	return (
 		<div className={style.body}>
-			<FormSteps add={addFormStep} dataEdit={dataEdit} setDataEdit={setDataEdit}/>
+			<FormSteps add={addFormStep} header={dataHeader} dataEdit={dataEdit} setDataEdit={setDataEdit}/>
 			<GridSteps data={dataGrid} header={dataHeader} edit={editGridStep} del={delGridStep}/>
 		</div>
 	)
