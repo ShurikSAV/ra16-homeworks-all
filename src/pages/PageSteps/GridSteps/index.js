@@ -16,7 +16,7 @@ export const GridSteps = ({data, header, edit, del}) => {
 				{data.map(
 					({data, distance}, i) => (
 						<tr key={i}>
-							<td>{data}</td>
+							<td>{data.toString()}</td>
 							<td>{distance}</td>
 							<td>
 								<button onClick={() => {edit(i)}}>✎</button>

@@ -42,7 +42,7 @@ export const FormSteps = ({add, dataEdit, setDataEdit, header}) => {
 				<tbody>
 					<tr>
 						<td className={style.tdLabel}>
-							<Label inputType="text" value={data.data} onSetValue={setData}>{labelData}</Label>
+							<Label inputType="date" value={data.data} onSetValue={setData}>{labelData}</Label>
 						</td>
 						<td className={style.tdLabel}>
 							<Label inputType="number"  value={data.distance} onSetValue={setDistance}>{labelStep}</Label>
