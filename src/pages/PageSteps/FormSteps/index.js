@@ -6,20 +6,22 @@ import style from './index.module.css'
 //{ data, distance }
 
 export const FormSteps = ({add, dataEdit, setDataEdit, header}) => {
-	const {index, data}  = dataEdit
+	const data  = dataEdit.data
 	const [labelData, labelStep] = header
 
-	const setData = (d) => {
-		//TODO Valid data
-		
+	const setDate = (d) => {
+		console.log(data.date, d.valueAsDate, dataEdit);
+
 		const dataEditNew = {
 			...dataEdit,
 			data: {
-				...dataEdit.data,
-				data: d
+				...data,
+				date: d.valueAsDate
 			}
 		}
 		
+		console.log(dataEditNew);
+
 		setDataEdit(dataEditNew)
 	}
 	
@@ -27,11 +29,10 @@ export const FormSteps = ({add, dataEdit, setDataEdit, header}) => {
 		const dataEditNew = {
 			...dataEdit,
 			data: {
-				...dataEdit.data,
-				distance: Number(d)
+				...data,
+				distance: Number(d.value)
 			}
 		}
-
 		setDataEdit(dataEditNew)
 	}
 
@@ -42,7 +43,7 @@ export const FormSteps = ({add, dataEdit, setDataEdit, header}) => {
 				<tbody>
 					<tr>
 						<td className={style.tdLabel}>
-							<Label inputType="date" value={data.data} onSetValue={setData}>{labelData}</Label>
+							<Label inputType="date" value={data.date} onSetValue={setDate}>{labelData}</Label>
 						</td>
 						<td className={style.tdLabel}>
 							<Label inputType="number"  value={data.distance} onSetValue={setDistance}>{labelStep}</Label>

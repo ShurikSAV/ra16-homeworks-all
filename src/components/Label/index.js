@@ -4,33 +4,16 @@ import { validData } from '../../util/ValidatorUtil'
 import style from './index.module.css'
 
 export const Label = ({inputType, value, onSetValue, children}) => {
-	//const dateValue = new Date().parse(value)
-	/*
-	let dateValue
-
-	if(inputType === "date") {
-		let dateAr = validData(value)
-		
-		if(dateAr) {
-			dateValue = new Date(dateAr[3], dateAr[2], dateAr[1])
-
-		}
-		else {
-			dateValue = new Date()
-		}
-		console.log('Label', value);
-		console.log(dateAr, dateValue);
-	} else {
-		dateValue = value
+	const onChange = (e) => {
+		onSetValue(e.target)
 	}
-*/
 
 
 	return (
 		<div className={style.body}>
 			{children}
 			<div>
-				<input type={inputType} value={value} onChange={(e) => onSetValue(e.target.value)}/>
+				<input type={inputType} value={value} onChange={onChange}/>
 			</div>
 		</div>
 	)
