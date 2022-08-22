@@ -31,7 +31,7 @@ export const ColorHexEdit = ({color, setColor, setMessage}) => {
 
 	return (
 		<div className={style.body}>
-			<input type="text" name="colorHex" value={inputValue} onChange={onChange}/>
+			<input placeholder="Введите hex" type="text" name="colorHex" value={inputValue} onChange={onChange}/>
 		</div>
 	)
 }
