@@ -27,9 +27,6 @@ export const PageSteps = () => {
 	const [ dataEdit, setDataEdit] = useState(dataEditStepsNew())
 
 	const addFormStep = () => {
-		//TODO валидация значений
-		
-		console.log('addFormStep0',dataEdit,dataValid(dataEdit));
 		if(!dataValid(dataEdit.data)) return
 
 		if(dataEdit.index) {

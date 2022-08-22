@@ -8,7 +8,7 @@ export const ColorHexEdit = ({color, setColor, setMessage}) => {
 	const [inputValue, setInputValue] = useState(color)
 
 	const errorSettings = {
-		color: "#00FF00",
+		color: "#FF0000",
 		mesage: "Ошибка!"
 	}
 
@@ -17,12 +17,16 @@ export const ColorHexEdit = ({color, setColor, setMessage}) => {
 
 		setInputValue(colorNew)
 
+		if(colorNew.length < 7 ) return
+
 		if(validColorHex(colorNew)) {
 			setMessage()
 			setColor(colorNew)
 			return;
 		}
+
 		setMessage(errorSettings.mesage)
+		setColor(errorSettings.color)
 	}
 
 	return (
