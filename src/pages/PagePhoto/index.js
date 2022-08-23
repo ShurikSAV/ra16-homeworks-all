@@ -29,14 +29,18 @@ const handleSelect = async (evt) => {
 export const PagePhoto = () => {
 	return (
 		<div className={style.body}>
-			<div className={style.fileInput}>
-				<div className={style.fileText}>Click to select</div>
-				<input type="file" id="image" accept="image/*" multiple/>
-			</div>
-			<div>
-				<ImagePreview />
-				<ImagePreview />
+			<div className={style.cellsBig}>
+				<div className={style.fileInput}>
+					<div className={style.fileText}>
+						<p>Click to select</p>
+						<input type="file" id="image" accept="image/*" multiple/>
+					</div>
+				</div>
+				<div>
+					<ImagePreview />
+					<ImagePreview />
 
+				</div>
 			</div>
 		</div>
 	)
