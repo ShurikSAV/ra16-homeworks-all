@@ -1,27 +1,24 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Label } from '../../../components/Label'
+import { format, isDate } from 'date-fns'
 //import PropTypes from 'prop-types';
 import style from './index.module.css'
 
 //{ data, distance }
 
 export const FormSteps = ({add, dataEdit, setDataEdit, header}) => {
-	const data  = dataEdit.data
+	const distanceEdit  = dataEdit.data.distance
+	const dateEdit = isDate(dataEdit.data.date) ? format(dataEdit.data.date, 'yyyy-MM-dd') : ""
 	const [labelData, labelStep] = header
 
 	const setDate = (d) => {
-		console.log(data.date, d.valueAsDate, dataEdit);
-
 		const dataEditNew = {
 			...dataEdit,
 			data: {
-				...data,
+				...dataEdit.data,
 				date: d.valueAsDate
 			}
 		}
-		
-		console.log(dataEditNew);
-
 		setDataEdit(dataEditNew)
 	}
 	
@@ -29,13 +26,12 @@ export const FormSteps = ({add, dataEdit, setDataEdit, header}) => {
 		const dataEditNew = {
 			...dataEdit,
 			data: {
-				...data,
+				...dataEdit.data,
 				distance: Number(d.value)
 			}
 		}
 		setDataEdit(dataEditNew)
 	}
-
 
 	return (
 		<div className={style.body}>
@@ -43,10 +39,10 @@ export const FormSteps = ({add, dataEdit, setDataEdit, header}) => {
 				<tbody>
 					<tr>
 						<td className={style.tdLabel}>
-							<Label inputType="date" value={data.date} onSetValue={setDate}>{labelData}</Label>
+							<Label inputType="date" value={dateEdit} onSetValue={setDate}>{labelData}</Label>
 						</td>
 						<td className={style.tdLabel}>
-							<Label inputType="number"  value={data.distance} onSetValue={setDistance}>{labelStep}</Label>
+							<Label inputType="number"  value={distanceEdit} onSetValue={setDistance}>{labelStep}</Label>
 						</td>
 						<td className={style.tdButton}>
 							<button onClick={add}>OK</button>

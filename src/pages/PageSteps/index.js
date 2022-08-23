@@ -1,10 +1,11 @@
+import { isDate } from 'date-fns'
 import React, { useState } from 'react'
 import { FormSteps } from './FormSteps'
 import { GridSteps } from './GridSteps'
 //import PropTypes from 'prop-types';
 import style from './index.module.css'
 
-const dataStepsNew = (date = new Date(), distance = 0.0) => {return { date: date, distance: distance }}
+const dataStepsNew = (date = new Date(), distance = 0.0) => {return { date, distance }}
 
 const dataHeader = ["Дата (ДД.ММ.ГГ)", "Пройдено км", "Действия"]
 
@@ -14,38 +15,33 @@ const dataSteps = [
 	dataStepsNew( new Date(2019,7,18), 3.4),
 ]
 
-const dateValid = (dateEdit) => {
-	return dateEdit instanceof Date && !isNaN(dateEdit)
-}
-
-const dataEditStepsNew = (index = undefined, date, distance) => {return {index, data: dataStepsNew(date, distance)}}
+const dataEditStepsNew = (index = undefined, data = dataStepsNew()) => {return {index, data}}
 
 export const PageSteps = () => {
 	const [ dataGrid, setDataGrid] = useState(dataSteps)
 	const [ dataEdit, setDataEdit] = useState(dataEditStepsNew())
 
 	const addFormStep = () => {
-		console.log('addFormStep',dataEdit);
-		if(!dateValid(dataEdit.date)) return
-		console.log('addFormStep0',dataEdit.date);
+		if(!isDate(dataEdit.data.date)) {
+			alert('В ведите дату в поле "Дата (ДД.ММ.ГГ)"')
+			return
+		}
 
 		if(dataEdit.index) {
-			console.log('addFormStep1',dataEdit);
 			setDataGrid(
 				[
 					...dataGrid.map(
 						(item, i) => {
-							return i === dataEdit.index ? dataEdit.date : item
+							return i === dataEdit.index ? dataEdit.data : item
 						}
 					)
 				]
 			)
 		} else {
-			console.log('addFormStep2',dataEdit);
 			setDataGrid(
 				[
 					...dataGrid,
-					dataEdit.date
+					dataEdit.data
 				]
 			)
 		}
@@ -58,12 +54,10 @@ export const PageSteps = () => {
 			(_, i) => i !== index
 			)
 			
-		console.log('delGridStep', dataGrid,dataNew)
 		setDataGrid([...dataNew])
 	}
 
 	const editGridStep = (index) => {
-		
 		setDataEdit(dataEditStepsNew(index, dataGrid[index]))
 	}
 
