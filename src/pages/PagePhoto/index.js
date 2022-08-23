@@ -36,10 +36,10 @@ export const PagePhoto = () => {
 						<input type="file" id="image" accept="image/*" multiple/>
 					</div>
 				</div>
-				<div>
+				<div className={style.gallery}>
 					<ImagePreview />
 					<ImagePreview />
-
+					<ImagePreview />
 				</div>
 			</div>
 		</div>

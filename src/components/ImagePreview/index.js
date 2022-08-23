@@ -5,7 +5,8 @@ import style from './index.module.css'
 export const ImagePreview = () => {
 	return (
 		<div className={style.body}>
-			ImagePreview
+			<button className={style.buttonClose}>X</button>
+			<img className= {style.image} alt='картинка'/>
 		</div>
 	)
 }

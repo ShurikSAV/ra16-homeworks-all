@@ -35,9 +35,15 @@
 
 .fileText {
 	/* pointer-events: none; */
-
 	height: 10em;
 	display: flex;
 	align-items: center;
 	justify-content: center
+}
+
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: stretch;
+	height: 100%;
 }
