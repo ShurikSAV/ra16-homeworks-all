@@ -1,51 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Label } from '../../../components/Label'
-import { format, isDate } from 'date-fns'
+import { format, isDate, toDate } from 'date-fns'
 //import PropTypes from 'prop-types';
 import style from './index.module.css'
 
-//{ data, distance }
-
-export const FormSteps = ({add, dataEdit, setDataEdit, header}) => {
-	const distanceEdit  = dataEdit.data.distance
-	const dateEdit = isDate(dataEdit.data.date) ? format(dataEdit.data.date, 'yyyy-MM-dd') : ""
+export const FormSteps = ({header, updateSteps, stepEdit}) => {
 	const [labelData, labelStep] = header
+	const {date,distance} = stepEdit
 
-	const setDate = (d) => {
-		const dataEditNew = {
-			...dataEdit,
-			data: {
-				...dataEdit.data,
-				date: d.valueAsDate
-			}
-		}
-		setDataEdit(dataEditNew)
-	}
+	console.log('FormSteps1', stepEdit, date,distance)
+
+	const [dateEdit, setDateEdit] = useState(date)
+
+	const [distanceEdit, setDistanceEdit] = useState(distance)
 	
-	const setDistance = (d) => {
-		const dataEditNew = {
-			...dataEdit,
-			data: {
-				...dataEdit.data,
-				distance: Number(d.value)
-			}
-		}
-		setDataEdit(dataEditNew)
-	}
-
+	console.log('FormSteps2',dateEdit, distanceEdit);
+	
 	return (
 		<div className={style.body}>
 			<table>
 				<tbody>
 					<tr>
 						<td className={style.tdLabel}>
-							<Label inputType="date" value={dateEdit} onSetValue={setDate}>{labelData}</Label>
+							<Label inputType="date" value={format(dateEdit, 'yyyy-MM-dd')} onSetValue={(e) => setDateEdit(e.valueAsDate)}>{labelData}</Label>
 						</td>
 						<td className={style.tdLabel}>
-							<Label inputType="number"  value={distanceEdit} onSetValue={setDistance}>{labelStep}</Label>
+							<Label inputType="number" value={distanceEdit} onSetValue={(e) => setDistanceEdit(e.value)}>{labelStep}</Label>
 						</td>
 						<td className={style.tdButton}>
-							<button onClick={add}>OK</button>
+							<button onClick={() => updateSteps(dateEdit, distanceEdit)}>OK</button>
 						</td>
 					</tr>
 				</tbody>
