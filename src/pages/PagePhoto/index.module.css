@@ -20,30 +20,11 @@
 	background-position: left top;
 }
 
-.fileInput {
-	margin: auto;
-	width: 80%;
-	height: 30%;
-	background-color: white;
-	text-align: center;
 
-	box-shadow: 0 0 0 1px black;
-	border-radius: 20px; 
-
-	font-size: x-large;
-}
-
-.fileText {
-	/* pointer-events: none; */
-	height: 10em;
-	display: flex;
-	align-items: center;
-	justify-content: center
-}
 
 .gallery {
 	display: flex;
 	flex-wrap: wrap;
-	align-content: stretch;
+	align-content: start;
 	height: 100%;
 }

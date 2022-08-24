@@ -2,11 +2,11 @@ import React from 'react'
 //import PropTypes from 'prop-types';
 import style from './index.module.css'
 
-export const ImagePreview = () => {
+export const ImagePreview = ({name, dataImage, onClose}) => {
 	return (
 		<div className={style.body}>
-			<button className={style.buttonClose}>X</button>
-			<img className= {style.image} alt='картинка'/>
+			<img src={dataImage} className={style.image} alt={name}/>
+			<button onClick={onClose} className={style.buttonClose}>X</button>
 		</div>
 	)
 }
