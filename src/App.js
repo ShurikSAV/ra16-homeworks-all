@@ -2,6 +2,9 @@ import React from 'react';
 import styles from './App.module.css';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Header from './components/Header';
+import { CardsPages } from './pages/CardsPages';
+import { CollapsePages } from './pages/CollapsePages';
+import { DecompositionPages } from './pages/DecompositionPages';
 
 const menu = [
 		{
@@ -10,19 +13,19 @@ const menu = [
 			element: (<p>Выберите задание в меню выше</p>)
 		},
 		{
-			path: "/",
+			path: "CardsPages/",
 			name: "Карточки",
-			element: (<p>Карточки</p>)
+			element: (<CardsPages/>)
 		},
 		{
-			path: "/",
+			path: "DecompositionPages/",
 			name: "Декомпозиция",
-			element: (<p>Декомпозиция</p>)
+			element: (<DecompositionPages />)
 		},
 		{
-			path: "/",
+			path: "CollapsePages/",
 			name: "Collapse",
-			element: (<p>Collapse</p>)
+			element: (<CollapsePages />)
 		},
 	]
 

@@ -1,10 +1,10 @@
 import React from 'react'
 import style from './index.module.css'
 
-export const CardsPages = () => {
+export const CollapsePages = () => {
 	return (
 		<div className={style.body}>
-			CardsPages
+			CollapsePages
 		</div>
 	)
 }
