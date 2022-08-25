@@ -1,6 +1,5 @@
 import React from 'react'
-//import PropTypes from 'prop-types';
-import style from './templates.module.css'
+import style from './index.module.css'
 
 export const Templates = () => {
 	return (
@@ -9,9 +8,3 @@ export const Templates = () => {
 		</div>
 	)
 }
-
-/*
-Templates.propTypes = {
-	count: PropTypes.number
-	}
-*/
