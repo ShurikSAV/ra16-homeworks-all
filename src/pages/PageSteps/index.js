@@ -1,4 +1,4 @@
-import { isDate } from 'date-fns'
+import { isDate, isEqual } from 'date-fns'
 import React, { useState } from 'react'
 import { FormSteps } from './FormSteps'
 import { GridSteps } from './GridSteps'
@@ -20,40 +20,40 @@ export const PageSteps = () => {
 	const [ dataGrid, setDataGrid] = useState(dataSteps)
 	const [ indexEdit, setIndexEdit] = useState()
 
-	const addFormStep = (date, distance) => {
+	const validDate = (date) => {
 		if(!isDate(date)) {
 			alert('В ведите дату в поле "Дата (ДД.ММ.ГГ)"')
-			return
+			return false
 		}
-		setDataGrid(
-			[
-				...dataGrid,
-				dataStepsCreate(date, distance)
-			])
-		setIndexEdit(undefined)
+		return true
 	}
-	
-	const updateFormStep = (index, date, distance) => {
-		if(!isDate(date)) {
-			alert('В ведите дату в поле "Дата (ДД.ММ.ГГ)"')
-			return
-		}
+
+	const updateFormStep = (date, distance, indexEdit = -1) => {
+		if(!validDate(date)) {return}
+		
+		if(!indexEdit) {indexEdit = -1}
+
+		date.setHours(0,0,0,0)
+		
+		const equalityItemDataGrid = dataGrid.find(
+			(item, i) => i != indexEdit && isEqual(item.date,date)
+			)
+			
+		if(equalityItemDataGrid) {distance = Number(distance) + Number(equalityItemDataGrid.distance)}
+		
 		setDataGrid(
 			[
-				...dataGrid.map(
-					(item, i) => {
-						return i === index ? dataStepsCreate(date, distance) : item
-					}
-				)
-			]
-		)
+				...dataGrid.filter((item, i) => i != indexEdit && item.date > date ),
+				dataStepsCreate(date, distance),
+				...dataGrid.filter((item, i) => i != indexEdit && item.date < date)
+			])
 		setIndexEdit(undefined)
 	}
 	const delGridStep = (index) => {
 		setDataGrid(dataGrid.filter((_, i) => i !== index))
 	}
 	
-	const stepEdit = indexEdit ? {...dataGrid[indexEdit]} : dataStepsCreate()
+	const stepEdit = indexEdit ? dataGrid[indexEdit] : dataStepsCreate()
 
 	return (
 		<div className={style.body}>
@@ -61,9 +61,7 @@ export const PageSteps = () => {
 				header={dataHeader} 
 				stepEdit={stepEdit}
 				updateSteps={(date, distance) => {
-					indexEdit 
-						? updateFormStep(indexEdit, date, distance)
-						: addFormStep(date, distance)
+					updateFormStep(date, distance, indexEdit)
 				}} 
 				/>
 			
