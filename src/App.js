@@ -8,7 +8,22 @@ const menu = [
 			path: "/",
 			name: "Домой",
 			element: (<p>Выберите задание в меню выше</p>)
-		}
+		},
+		{
+			path: "/",
+			name: "Карточки",
+			element: (<p>Карточки</p>)
+		},
+		{
+			path: "/",
+			name: "Декомпозиция",
+			element: (<p>Декомпозиция</p>)
+		},
+		{
+			path: "/",
+			name: "Collapse",
+			element: (<p>Collapse</p>)
+		},
 	]
 
 function App() {
