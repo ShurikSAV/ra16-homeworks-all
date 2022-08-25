@@ -54,7 +54,6 @@ export const PageSteps = () => {
 	}
 	
 	const stepEdit = indexEdit ? {...dataGrid[indexEdit]} : dataStepsCreate()
-	console.log('indexEdit',indexEdit, stepEdit);
 
 	return (
 		<div className={style.body}>

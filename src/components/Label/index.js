@@ -1,5 +1,4 @@
 import React from 'react'
-import { validData } from '../../util/ValidatorUtil'
 //import PropTypes from 'prop-types';
 import style from './index.module.css'
 

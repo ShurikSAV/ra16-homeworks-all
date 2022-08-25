@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { FileInput } from '../../components/FileInput';
 import { ImagePreview } from '../../components/ImagePreview';
 //import PropTypes from 'prop-types';
