@@ -1,3 +1,25 @@
 .card {
-    width: 18rem;
+	width: 18rem;
+	margin: 10px;
+	border: solid 1px;
+	border-color: darkgray;
+	border-radius: 5px;
+}
+
+.card_body {
+	text-align: left;
+	padding: 10px 20px;
+}
+
+.card_body p {
+	text-align:justify;
+}
+
+.card_body h5 {
+	padding-bottom: 10px;
+}
+
+.card_img_top {
+	max-width: 18rem;
+	max-height: 18rem;
 }

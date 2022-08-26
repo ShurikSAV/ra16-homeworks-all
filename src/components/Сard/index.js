@@ -2,13 +2,14 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import style from './index.module.css'
 
-export const Сard = () => {
+export const Сard = ({img_url, img_alt, children}) => {
+	const imges = img_url && <img className={`${style.card_img_top} card-img-top`} src={img_url} alt={img_alt} />
+	
 	return (
 		<div className={style.card}>
-			{/* <img src="..." className="card-img-top" alt="..." /> */}
-			<div className="card-body">
-				<h5 className="card-title">Card title</h5>
-				<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+			{imges}
+			<div className={`${style.card_body} card-body`}>
+				{children}
 				<a href="#" className="btn btn-primary">Go somewhere</a>
 			</div>
 		</div>
