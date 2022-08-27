@@ -1,7 +1,10 @@
 import React from 'react'
 import style from './index.module.css'
+import { format } from 'date-fns'
+import { ru } from 'date-fns/locale'
+import { NewsList } from './NewsList'
 
-export const NewsSelection = ({menu, date}) => {
+export const NewsSelection = ({menu, date, news}) => {
 	return (
 		<div className={style.body}>
 			<div>
@@ -9,13 +12,9 @@ export const NewsSelection = ({menu, date}) => {
 					{menu.map(
 						(item, i) => <a key={i} href='item'>{item}</a>
 					)}
-					<span>{date.toISOString()}</span>
+					<span>{format(date,"dd MMMM, EEEE HH mm", {locale: ru})}</span>
 				</div>
-				<div>
-					<div>иконка + новость</div>
-					<div>иконка + новость</div>
-					<div>иконка + новость</div>
-				</div>
+				<NewsList news={news}/>
 				<div>Курс валют</div>
 			</div>
 			<div>

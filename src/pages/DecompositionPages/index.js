@@ -3,10 +3,19 @@ import style from './index.module.css'
 import { NewsSelection } from './NewsSelection'
 
 const content = {
-	news: {
+	newsSelection: {
 		menu: [ 'Сейчас в СМИ', 'в Германии', 'Рекомендуем'],
-		date: new Date()
-
+		date: new Date(),
+		news: [
+			{
+				icon: "https://cdnn21.img.ria.ru/i/favicons/favicon.svg",
+				header: "Название новости 01"
+			},
+			{
+				icon: "https://cdnn21.img.ria.ru/i/favicons/favicon.svg",
+				header: "Название новости 02"
+			}
+		]
 	}
 }
 
@@ -16,7 +25,7 @@ const content = {
 export const DecompositionPages = () => {
 	return (
 		<div className={style.body}>
-			<NewsSelection {...content.news}/>
+			<NewsSelection {...content.newsSelection}/>
 			<div>
 				<div>банер</div>
 				<div>
