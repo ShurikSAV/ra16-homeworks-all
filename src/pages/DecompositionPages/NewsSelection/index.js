@@ -2,24 +2,29 @@ import React from 'react'
 import style from './index.module.css'
 import { format } from 'date-fns'
 import { ru } from 'date-fns/locale'
-import { NewsList } from './NewsList'
+import { NewsLink } from './NewsLink'
 
-export const NewsSelection = ({menu, date, news}) => {
+
+export const NewsSelection = ({menu, date, news, banerUrl}) => {
+	const onMenuClick = () => {}
+	
 	return (
 		<div className={style.body}>
-			<div>
-				<div>
+			<div className={style.menuBody}>
+				<div className={style.menuHeader}>
 					{menu.map(
-						(item, i) => <a key={i} href='item'>{item}</a>
+						(item, i) => <a className={style.menuLink} key={i} onClick={onMenuClick}>{item}</a>
 					)}
-					<span>{format(date,"dd MMMM, EEEE HH mm", {locale: ru})}</span>
+					<span className={style.menuDate} >{format(date,"dd MMMM, EEEE HH mm", {locale: ru})}</span>
 				</div>
-				<NewsList news={news}/>
+				<div>
+					{news.map(
+						(item, i) => <NewsLink key={i} {...item}/>
+					)}
+				</div>
 				<div>Курс валют</div>
 			</div>
-			<div>
-				Банер
-			</div>
+			<img className={style.menuBaner} alt="Банер" src={banerUrl} />
 		</div>
 	)
 }

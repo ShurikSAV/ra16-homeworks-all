@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './index.module.css'
 import { NewsSelection } from './NewsSelection'
+import { FindSelection } from './FindSelection'
 
 const content = {
 	newsSelection: {
@@ -9,33 +10,29 @@ const content = {
 		news: [
 			{
 				icon: "https://cdnn21.img.ria.ru/i/favicons/favicon.svg",
-				header: "Название новости 01"
+				text: "Название новости 01",
+				url: "https://cdnn21.img.ria.ru/i/favicons/favicon.svg"
+
 			},
 			{
 				icon: "https://cdnn21.img.ria.ru/i/favicons/favicon.svg",
-				header: "Название новости 02"
+				text: "Название новости 02",
+				url: "https://cdnn21.img.ria.ru/i/favicons/favicon.svg"
 			}
-		]
+		],
+		banerUrl: "http://promoatlas.ru/wp-content/uploads/2015/08/reklamnoe-mesto.jpg"
 	}
 }
-
-
-
 
 export const DecompositionPages = () => {
 	return (
 		<div className={style.body}>
 			<NewsSelection {...content.newsSelection}/>
-			<div>
-				<div>банер</div>
-				<div>
-					<div>Меню поиска</div>
-					<div>поле ввода</div>
-					<div>фраза</div>
-					<div>Банер</div>
-				</div>
-				<div>кнопка поиска</div>
-			</div>
+			
+			<FindSelection />
+			
+			<div>Банер</div>
+			
 			<div>
 				<div>
 					<div>Погода</div>

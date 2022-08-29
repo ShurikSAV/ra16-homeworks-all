@@ -1,4 +1,31 @@
 .body {
-    margin: 10px;
-    padding: 0;
+	margin: 10px;
+	padding: 0;
+	width: 100%;
+	
+	display: flex;
+  	flex-flow: row nowrap;
+}
+
+.menuLink {
+	padding: 10px;
+}
+
+.menuDate {
+	color: darkgray;
+}
+
+.menuBaner {
+	width: 300px;
+	height: 300px;
+}
+
+.menuBody {
+	height: 300px;
+	width: 100%;
+	text-align: left;
+}
+
+.menuHeader {
+	text-align: left;
 }
