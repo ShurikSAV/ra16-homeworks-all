@@ -2,6 +2,7 @@ import React from 'react'
 import style from './index.module.css'
 import { NewsSelection } from './NewsSelection'
 import { FindSelection } from './FindSelection'
+import { Banner } from '../../components/Banner'
 
 const content = {
 	newsSelection: {
@@ -45,11 +46,8 @@ export const DecompositionPages = () => {
 	return (
 		<div className={style.body}>
 			<NewsSelection {...content.newsSelection}/>
-			
 			<FindSelection />
-			
-			<div>Банер</div>
-			
+			<Banner />
 			<div>
 				<div>
 					<div>Погода</div>

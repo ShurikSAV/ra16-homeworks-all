@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './index.module.css'
 
+/**Курс валюты */
 export const Currency = ({name, price, delta}) => {
 	return (
 		<span className={style.body}>
