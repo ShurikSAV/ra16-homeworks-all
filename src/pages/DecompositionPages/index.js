@@ -20,7 +20,24 @@ const content = {
 				url: "https://cdnn21.img.ria.ru/i/favicons/favicon.svg"
 			}
 		],
-		banerUrl: "http://promoatlas.ru/wp-content/uploads/2015/08/reklamnoe-mesto.jpg"
+		banerUrl: "http://promoatlas.ru/wp-content/uploads/2015/08/reklamnoe-mesto.jpg",
+		currency: [
+			{
+				name: "USD MOEX",
+				price: 63.52, 
+				delta: '+0.09'
+			},
+			{
+				name: "EUR MOEX",
+				price: 70.86, 
+				delta: '-0.14'
+			},
+			{
+				name: "НЕФТЬ",
+				price: 64.90, 
+				delta: '1,63%'
+			}
+		]
 	}
 }
 

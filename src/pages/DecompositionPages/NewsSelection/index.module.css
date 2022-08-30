@@ -4,7 +4,7 @@
 	width: 100%;
 	
 	display: flex;
-  	flex-flow: row nowrap;
+	flex-flow: row nowrap;
 }
 
 .menuLink {
@@ -21,11 +21,18 @@
 }
 
 .menuBody {
-	height: 300px;
+	min-height: 300px;
 	width: 100%;
 	text-align: left;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 
 .menuHeader {
 	text-align: left;
+}
+
+.newsLink {
+	flex-grow: 3;
 }

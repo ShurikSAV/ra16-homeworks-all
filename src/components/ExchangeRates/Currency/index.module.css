@@ -1,0 +1,14 @@
+.body {
+    margin: 0;
+    padding: 0;
+}
+
+.name, .price, .delta {
+    padding: 0 2px;
+    font-size:medium;
+} 
+
+.delta {
+    color: darkgray;
+    font-size: small;
+}
