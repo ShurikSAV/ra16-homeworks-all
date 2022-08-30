@@ -3,6 +3,7 @@ import style from './index.module.css'
 import { NewsSelection } from './NewsSelection'
 import { FindSelection } from './FindSelection'
 import { Banner } from '../../components/Banner'
+import { BasementSelection } from './BasementSelection'
 
 const content = {
 	newsSelection: {
@@ -39,6 +40,19 @@ const content = {
 				delta: '1,63%'
 			}
 		]
+	},
+	basementSelection: {
+		weather: {
+			icon: "https://vestnik-belovo.ru/wp-content/uploads/2016/03/Pogoda-1024x682.jpg",
+			temperature: "+17°",
+			morning: "+17",
+			evening: "+20"
+		},
+		visited: {},
+		map: {},
+		tvProgram: {},
+		broadcastVideo: {},
+
 	}
 }
 
@@ -48,19 +62,7 @@ export const DecompositionPages = () => {
 			<NewsSelection {...content.newsSelection}/>
 			<FindSelection />
 			<Banner />
-			<div>
-				<div>
-					<div>Погода</div>
-					<div>Посещаемое</div>
-				</div>
-				<div>
-					<div>Карта</div>
-					<div>Телепрограмма</div>
-				</div>
-				<div>
-					Эфир
-				</div>
-			</div>
+			<BasementSelection {...content.basementSelection}/>
 		</div>
 	)
 }

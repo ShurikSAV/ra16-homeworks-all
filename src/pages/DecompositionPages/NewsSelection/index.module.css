@@ -7,19 +7,6 @@
 	flex-flow: row nowrap;
 }
 
-.menuLink {
-	padding: 10px;
-}
-
-.menuDate {
-	color: darkgray;
-}
-
-.menuBaner {
-	width: 300px;
-	height: 300px;
-}
-
 .menuBody {
 	min-height: 300px;
 	width: 100%;
@@ -27,10 +14,6 @@
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-}
-
-.menuHeader {
-	text-align: left;
 }
 
 .newsLink {

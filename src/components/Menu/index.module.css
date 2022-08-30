@@ -1,0 +1,23 @@
+.body {
+	margin: 0px;
+	padding: 0;
+	text-align: left;
+}
+
+.menuLinkActiv {
+	font-weight: bold;
+}
+
+.menuDate {
+	color: darkgray;
+}
+
+.menuBaner {
+	width: 300px;
+	height: 300px;
+}
+
+.menuLink {
+	padding: 10px;
+	text-decoration: none;
+}
