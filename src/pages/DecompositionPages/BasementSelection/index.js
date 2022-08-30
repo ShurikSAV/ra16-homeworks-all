@@ -1,9 +1,6 @@
 import React from 'react'
-import { BroadcastVideo } from './BroadcastVideo'
+import { InformationBlock } from '../../../components/InformationBlock'
 import style from './index.module.css'
-import { Map } from './Map'
-import { TVProgram } from './TVProgram'
-import { Visited } from './Visited'
 import { Weather } from './Weather'
 
 /**подвал */
@@ -12,13 +9,15 @@ export const BasementSelection = ({weather, visited, map, tvProgram, broadcastVi
 		<div className={style.body}>
 			<div>
 				<Weather weather={weather}/>
-				<Visited visited={visited}/>
+				<InformationBlock {...visited}/>
 			</div>
 			<div>
-				<Map map={map}/>
-				<TVProgram tvProgram={tvProgram}/>
+				<InformationBlock {...map}/>
+				<InformationBlock {...tvProgram}/>
 			</div>
-			<BroadcastVideo broadcastVideo={broadcastVideo}/>
+			<div>
+				<InformationBlock {...broadcastVideo}/>
+			</div>
 		</div>
 	)
 }

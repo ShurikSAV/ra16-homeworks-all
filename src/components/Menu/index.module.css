@@ -12,12 +12,7 @@
 	color: darkgray;
 }
 
-.menuBaner {
-	width: 300px;
-	height: 300px;
-}
-
 .menuLink {
-	padding: 10px;
+	padding: 10px 10px 10px 0;
 	text-decoration: none;
 }

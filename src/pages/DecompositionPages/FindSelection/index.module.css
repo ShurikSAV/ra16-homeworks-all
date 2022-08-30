@@ -7,4 +7,25 @@
 
 .bodyLogo {
     height: 40px;
+    
+    position: relative;
+    left: -100px;
+    top: 15px
+}
+
+.inputDiv {
+    position: relative;
+    left: -90px;
+    text-align: left;
+    width: 100%;
+}
+
+.inputFind {
+    width: 90%;
+    border: 1px gold solid;
+}
+
+.inputDiv button {
+    background-color:gold;
+    border: 0;
 }

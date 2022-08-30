@@ -1,20 +1,21 @@
 .body {
-    margin: 10px;
+    margin: 10px 10px 10px 0;
     padding: 0;
     text-align: left;
 }
 
 .image {
     width: 15px;
-    display: inline;
-    position: relative;
-    left: -30px;
+    margin-right: 5px;
 }
 
 
 .body a {
     text-decoration: none;
-    position: relative;
-    left: -25px;
     color: black;
+}
+
+.comment {
+    color: darkgray;
+    margin-left: 5px;
 }

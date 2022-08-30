@@ -1,8 +1,7 @@
 import React from 'react'
 import style from './index.module.css'
-import { format } from 'date-fns'
 
-import { NewsLink } from './NewsLink'
+import { LineLink } from '../../../components/LineLink'
 import { ExchangeRates } from '../../../components/ExchangeRates'
 import { Menu } from '../../../components/Menu'
 
@@ -15,7 +14,7 @@ export const NewsSelection = ({menu, date, news, banerUrl, currency}) => {
 				<Menu date={date} menu={menu} activIndexMenu={activIndexMenu} /> 
 				<div className={style.newsLink}>
 					{news.map(
-						(item, i) => <NewsLink key={i} {...item}/>
+						(item, i) => <LineLink key={i} {...item}/>
 					)}
 				</div>
 				<ExchangeRates currency={currency}/>
