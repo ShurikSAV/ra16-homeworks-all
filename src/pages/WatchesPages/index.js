@@ -6,8 +6,12 @@ import style from './index.module.css'
 export const WatchesPages = () => {
 	const [watches, setWatches] = useState([
 		{
-			name: '1',
-			timeZone: 0
+			name: 'Москва',
+			timeZone: 4
+		},
+		{
+			name: 'Новосибрск',
+			timeZone: 7
 		},
 	])
 
