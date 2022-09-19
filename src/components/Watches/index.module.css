@@ -278,20 +278,38 @@
     left: 50%;
 }
 .clock__hand__hour {
-    animation: clock_hand_rotate 43200s linear infinite;
+    animation: clock_hand_rotate_hour 43200s linear infinite;
 }
 .clock__hand__minute {
-    animation: clock_hand_rotate 3600s linear infinite;
+    animation: clock_hand_rotate_minute 3600s linear infinite;
 }
 .clock__hand__second {
-    animation: clock_hand_rotate 60s linear infinite;
+    animation: clock_hand_rotate_second 60s linear infinite;
 }
 
-@keyframes clock_hand_rotate {
+@keyframes clock_hand_rotate_hour {
     from {
         transform: rotate(0deg)
     }
     to {
         transform: rotate(360deg)
+    }
+}
+
+@keyframes clock_hand_rotate_minute {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes clock_hand_rotate_second {
+    from {
+        transform: rotate(40deg)
+    }
+    to {
+        transform: rotate(400deg)
     }
 }

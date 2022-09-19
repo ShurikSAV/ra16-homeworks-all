@@ -10,7 +10,7 @@ export const WatchesPages = () => {
 			timeZone: 4
 		},
 		{
-			name: 'Новосибрск',
+			name: 'Новосибирск',
 			timeZone: 7
 		},
 	])
