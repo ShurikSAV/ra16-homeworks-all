@@ -5,46 +5,31 @@ import styled, { keyframes } from "styled-components";
 
 export const Watches = ({name,timeZone}) => {
 
+	//TODO Привязать к текущему времени и смещению
+	//TODO Кнопка закрытия часов
+	//TODO Посмотреть текущий TimezoneOffset вы можете используя объект `Date`
+
+	/**Первоначальный угол поворота стрелки */
+	const startCornerHour = 10;
+	const startCornerMinutes = 30;
+	const startCornerSecond = 190;
+	
+
 	const keyframesSecond = keyframes`
-    from {
-        transform: rotate(0deg)
-    }
-    to {
-        transform: rotate(360deg)
-    }
-`;
-
-/*
-  var styles = {
-    border: "16px solid #eee",
-    borderTop: "16px solid #3ae",
-    borderRadius: "50%",
-    width: "1cm",
-    height: "1cm",
-    animation: `${spin} 2s linear infinite`
-  };
-*/
-  const ClockSecond = styled.span`
-	&:after {
-		content: '';
-		border-radius: 0.01em 0.01em 0.005em 0.005em;
-		background-color: #f00;
-		margin-bottom: -0.02em;
-		margin-left: -0.005em;
-		font-size: inherit;
-		position: absolute;
-		display: block;
-		height: 0.46em;
-		width: 0.01em;
-		bottom: 50%;
-		left: 50%;
-	}`;
-	/* animation: ${spin} 2s linear infinite */
-	const ClockSecondAnimated = styled(ClockSecond)`
-		-webkit-animation: ${keyframesSecond} 60s linear infinite;
-		animation: ${keyframesSecond} 60s linear infinite;
-  	`;
-
+	from {transform: rotate(${startCornerSecond}deg)}
+	to {transform: rotate(${startCornerSecond + 360}deg)}`;
+	const SecondHandAnimated = styled.span`animation: ${keyframesSecond} 60s linear infinite;`;
+	
+	const keyframesMinutes = keyframes`
+	from {transform: rotate(${startCornerMinutes}deg)}
+	to {transform: rotate(${startCornerMinutes + 360}deg)}`;
+	const MinutesHandAnimated = styled.span`animation: ${keyframesMinutes} 3600s linear infinite;`;
+	
+	const keyframesHour = keyframes`
+	from {transform: rotate(${startCornerHour}deg)}
+	to {transform: rotate(${startCornerHour + 360}deg)}`;
+	const HourHandAnimated = styled.span`animation: ${keyframesHour} 43200s linear infinite;`;
+	
 	return (
 		<div className={style.body}>
 			<h1>{name}</h1>
@@ -110,10 +95,9 @@ export const Watches = ({name,timeZone}) => {
 				<span className={`${style.clock__stroke} ${style.clock__stroke__small} ${style.clock__stroke__59}`}></span>
 				<span className={`${style.clock__stroke} ${style.clock__stroke__60}`}></span>
 
-				<span className={`${style.clock__hand} ${style.clock__hand__hour}`}></span>
-				<span className={`${style.clock__hand} ${style.clock__hand__minute}`}></span>
-				{/* <span className={`${style.clock__hand} ${style.clock__hand__second}`}></span> */}
-				<ClockSecondAnimated></ClockSecondAnimated>
+				<HourHandAnimated className={`${style.clock__hand} ${style.clock__hand__hour}`}></HourHandAnimated>
+				<MinutesHandAnimated className={`${style.clock__hand} ${style.clock__hand__minute}`}></MinutesHandAnimated>
+				<SecondHandAnimated className={`${style.clock__hand} ${style.clock__hand__second}`}></SecondHandAnimated>
 			</time>
 
 		</div>
