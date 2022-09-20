@@ -5,14 +5,20 @@ import styled, { keyframes } from "styled-components";
 
 export const Watches = ({name,timeZone}) => {
 
-	//TODO Привязать к текущему времени и смещению
 	//TODO Кнопка закрытия часов
-	//TODO Посмотреть текущий TimezoneOffset вы можете используя объект `Date`
+
+	const time = new Date()
+
+	console.log(time, time.getTimezoneOffset());
+	
+	time.setMinutes(time.getMinutes() - time.getTimezoneOffset() + timeZone * 60)
+
+	console.log(time, time.getTimezoneOffset());
 
 	/**Первоначальный угол поворота стрелки */
-	const startCornerHour = 10;
-	const startCornerMinutes = 30;
-	const startCornerSecond = 190;
+	const startCornerHour = time.getHours() >= 12 ? ((time.getHours() - 12) * 360 / 12 ) : (time.getHours() * 360 / 12 );
+	const startCornerMinutes = (time.getMinutes() * 360 / 60 );;
+	const startCornerSecond = (time.getSeconds() * 360 / 60 );;
 	
 
 	const keyframesSecond = keyframes`
