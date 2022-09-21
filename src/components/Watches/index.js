@@ -3,9 +3,7 @@ import style from './index.module.css'
 import styled, { keyframes } from "styled-components";
 
 
-export const Watches = ({name,timeZone}) => {
-
-	//TODO Кнопка закрытия часов
+export const Watches = ({name, timeZone, onClose}) => {
 	const time = new Date()
 	time.setMinutes(time.getMinutes() + time.getTimezoneOffset() + timeZone * 60)
 
@@ -31,6 +29,7 @@ export const Watches = ({name,timeZone}) => {
 	
 	return (
 		<div className={style.body}>
+			<button className={style.buttonClose} onClick={onClose}>X</button>
 			<h1>{name}</h1>
 			<time className={style.clock}>
 				<span className={`${style.clock__stroke} ${style.clock__stroke__small} ${style.clock__stroke__1}`}></span>

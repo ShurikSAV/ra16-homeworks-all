@@ -19,12 +19,19 @@ export const WatchesPages = () => {
 		setWatches([...watches, {name,timeZone}])
 	}
 
+	const delWatch = (indexDel) => {
+		setWatches(
+			[ ...watches.filter( (_, index) => index != indexDel) ]
+			)
+	}
+
+
 	return (
 		<div className={style.body}>
 			<FormWatches addWatch={addWatch}/>
 
 			{watches.map( (item, i) => (
-				<Watches key={i} {...item}/>
+				<Watches key={i} {...item} onClose={ () => delWatch(i) }/>
 			))}
 			
 		</div>
