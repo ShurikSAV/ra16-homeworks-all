@@ -10,8 +10,9 @@ export const FormWatches = ({addWatch}) => {
 		<div className={style.body}>
 			<InputBlock value={watchName} setValue={setWatchName} valueType={"text"} text={"Название"} />
 			<InputBlock value={timezone} setValue={setTimezone} valueType={"number"} text={"Временная зона"} />
-			
-			<button onClick={() => addWatch(watchName, timezone)}> Добавить </button>
+			<div>
+				<button className={style.addButton} onClick={() => addWatch(watchName, timezone)}> Добавить </button>
+			</div>
 		</div>
 	)
 }

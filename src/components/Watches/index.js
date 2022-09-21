@@ -30,7 +30,7 @@ export const Watches = ({name, timeZone, onClose}) => {
 	return (
 		<div className={style.body}>
 			<button className={style.buttonClose} onClick={onClose}>X</button>
-			<h1>{name}</h1>
+			<h1>{name || '-'}</h1>
 			<time className={style.clock}>
 				<span className={`${style.clock__stroke} ${style.clock__stroke__small} ${style.clock__stroke__1}`}></span>
 				<span className={`${style.clock__stroke} ${style.clock__stroke__small} ${style.clock__stroke__2}`}></span>

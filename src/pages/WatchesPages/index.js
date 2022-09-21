@@ -29,10 +29,11 @@ export const WatchesPages = () => {
 	return (
 		<div className={style.body}>
 			<FormWatches addWatch={addWatch}/>
-
-			{watches.map( (item, i) => (
-				<Watches key={i} {...item} onClose={ () => delWatch(i) }/>
-			))}
+			<div className={style.clocks}>
+				{watches.map( (item, i) => (
+					<Watches key={i} {...item} onClose={ () => delWatch(i) }/>
+					))}
+			</div>
 			
 		</div>
 	)
