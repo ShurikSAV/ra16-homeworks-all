@@ -6,20 +6,13 @@ import styled, { keyframes } from "styled-components";
 export const Watches = ({name,timeZone}) => {
 
 	//TODO Кнопка закрытия часов
-
 	const time = new Date()
-
-	console.log(timeZone, 1, time ,time.getTimezoneOffset());
-	
-	time.setMinutes(time.getMinutes() - time.getTimezoneOffset() + timeZone * 60)
-	
-	console.log(timeZone, 2, time ,time.getTimezoneOffset());
+	time.setMinutes(time.getMinutes() + time.getTimezoneOffset() + timeZone * 60)
 
 	/**Первоначальный угол поворота стрелки */
-	const startCornerHour = time.getHours() >= 12 ? ((time.getHours() - 12) * 360 / 12 ) : (time.getHours() * 360 / 12 );
+	const startCornerHour = time.getHours() * 360 / 12;
 	const startCornerMinutes = (time.getMinutes() * 360 / 60 );;
 	const startCornerSecond = (time.getSeconds() * 360 / 60 );;
-	
 
 	const keyframesSecond = keyframes`
 	from {transform: rotate(${startCornerSecond}deg)}
