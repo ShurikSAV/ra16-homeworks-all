@@ -9,11 +9,11 @@ export const Watches = ({name,timeZone}) => {
 
 	const time = new Date()
 
-	console.log(time, time.getTimezoneOffset());
+	console.log(timeZone, 1, time ,time.getTimezoneOffset());
 	
 	time.setMinutes(time.getMinutes() - time.getTimezoneOffset() + timeZone * 60)
-
-	console.log(time, time.getTimezoneOffset());
+	
+	console.log(timeZone, 2, time ,time.getTimezoneOffset());
 
 	/**Первоначальный угол поворота стрелки */
 	const startCornerHour = time.getHours() >= 12 ? ((time.getHours() - 12) * 360 / 12 ) : (time.getHours() * 360 / 12 );
