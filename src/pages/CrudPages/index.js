@@ -1,4 +1,7 @@
 import React from 'react'
+import { ButtonRound } from '../../components/ButtonRound'
+import { NoteNew } from '../../components/NoteNew'
+import { Notes } from '../../components/Notes'
 import style from './index.module.css'
 
 
@@ -22,7 +25,12 @@ import style from './index.module.css'
 export const CrudPages = () => {
 	return (
 		<div className={style.body}>
-			CrudPages
+			<div className={style.caption}>
+				<h1>Notes</h1>
+				<ButtonRound className={style.buttonRefresh}>О</ButtonRound>
+			</div>
+			<Notes/>
+			<NoteNew/>
 		</div>
 	)
 }
