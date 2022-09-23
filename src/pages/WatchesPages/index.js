@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Watches } from '../../components/Watches'
 import { FormWatches } from './FormWatches'
 import style from './index.module.css'
@@ -21,7 +21,7 @@ export const WatchesPages = () => {
 
 	const delWatch = (indexDel) => {
 		setWatches(
-			[ ...watches.filter( (_, index) => index != indexDel) ]
+			[ ...watches.filter( (_, index) => index !== indexDel) ]
 			)
 	}
 
