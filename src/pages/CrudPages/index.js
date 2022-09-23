@@ -24,11 +24,15 @@ import style from './index.module.css'
 	//После чего делается запрос на получение всех записей и происходит обновление списка (GET http://localhost:7777/notes).
 
 export const CrudPages = () => {
+	const onRefresh = () => {
+		console.log('CrudPages','onRefresh');
+	}
+
 	return (
 		<div className={style.body}>
 			<div className={style.caption}>
 					<h1>Notes</h1>
-					<ButtonRound className={style.buttonRefresh}>
+					<ButtonRound className={style.buttonRefresh} onClick={onRefresh}>
 						<img alt='Обновить' src={UpdateIco['60x60']}></img>
 					</ButtonRound>
 			</div>
