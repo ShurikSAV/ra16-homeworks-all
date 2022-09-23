@@ -1,3 +1,6 @@
+//cd .\src\pages\CrudPages\backend\
+//npm start
+
 const http = require('http');
 const Koa = require('koa');
 const Router = require('koa-router');

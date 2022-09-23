@@ -3,6 +3,17 @@
 	padding: 0;
 }
 
-.caption {}
+.caption {
+	display: inline-block;
+}
+.caption h1 {
+	display: inline-block;
+}
+
+.caption img {
+	height: 20px;
+	width: 20px;
+}
 
 .buttonRefresh {}
+
