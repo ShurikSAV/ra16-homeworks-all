@@ -1,4 +1,18 @@
 .body {
 	margin: 10px;
 	padding: 0;
+	border: 1px black solid;
+	width: 250px;
+}
+
+.buttonClose {
+	position: relative;
+	top: -25px;
+	left: 125px;
+	height: 0px;
+}
+
+.text {
+	font-size: large;
+	padding: 5px;
 }
